@@ -56,4 +56,37 @@ Use a PyTorch build compatible with your hardware and CUDA environment.
 
 ## 4. Testing
 
-Run the commands below **from the repository root**. Before testing, update the corresponding `configs/SKA_x*_test_config.py` file to point `data_root`, `weight_path`, and `result_dir` to the extracted test dataset
+Run the commands below **from the repository root**. Before testing, update the corresponding `configs/SKA_x*_test_config.py` file to point `data_root`, `weight_path`, and `result_dir` to the extracted test dataset, a compatible pretrained checkpoint, and the desired output directory.
+
+**2× super-resolution**
+
+```bash
+python code/SKA_x2_test.py
+```
+
+**4× super-resolution**
+
+```bash
+python code/SKA_x4_test.py
+```
+
+**8× super-resolution**
+
+```bash
+python code/SKA_x8_test.py
+```
+
+Each script performs image reconstruction and calculates evaluation metrics. **No retraining is required** when using a compatible pretrained checkpoint. Keep the PSF processing mode consistent with the checkpoint.
+
+## 5. Evaluation Outputs
+
+Evaluation results are generated in the directory specified by `result_dir` in the test configuration.
+
+| File or directory | Description |
+|:---|:---|
+| `evaluation_summary.txt` | Mean PSNR, SSIM, RMSE, and physical-consistency metrics |
+| `metrics.txt` | Per-image evaluation metrics |
+| `sr/` | Super-resolved reconstructed images |
+| `sim_dirty/` | Dirty images simulated by the image-domain forward operator |
+
+**Image-domain metrics** (PSNR, SSIM, and RMSE) compare each reconstructed image, downsampled to the input resolution, with its corresponding clean reference image. **Physical-consistency metrics** compare the observed and simulated dirty images.
