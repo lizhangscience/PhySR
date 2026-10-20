@@ -89,6 +89,6 @@ Evaluation results are saved to the directory specified by `result_dir` in the c
 
 **Image-domain metrics:** PSNR, SSIM, and RMSE are calculated by downsampling each reconstructed image to the input resolution and comparing it with the corresponding clean reference image.
 
-**Physical-consistency metrics:** `Phys_PSNR` and `Phys_SSIM` measure the similarity between the observed dirty image and the simulated dirty image obtained through the image-domain forward operator.
+**Physical-consistency metrics:** Phys_PSNR and Phys_SSIM measure the similarity between the observed dirty image and the simulated dirty image obtained through the image-domain forward operator.
 
-**Note on observation-domain metrics:** The physical-consistency PSNR and SSIM calculated by the test scripts are **not equivalent to the observation-domain metrics reported in the paper**. The paper uses observation-domain RMSE, mean absolute error (MAE), relative residual error (RRE), and residual standard deviation (σ_R) to evaluate differences between simulated observations and the original dirty images. These metrics have different definitions and should not be used interchangeably with `Phys_PSNR` and `Phys_SSIM`.
+**Note on observation-domain metrics:** The physical-consistency PSNR and SSIM calculated by the test scripts are **not equivalent to the observation-domain metrics reported in the paper**. The paper uses observation-domain RMSE, mean absolute error (MAE), relative residual error (RRE), and residual standard deviation (σ_R) to evaluate differences between simulated observations and the original dirty images. These metrics have different definitions and should not be used interchangeably with Phys_PSNR and Phys_SSIM.
